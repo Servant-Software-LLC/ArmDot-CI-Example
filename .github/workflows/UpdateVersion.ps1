@@ -10,8 +10,8 @@ if([string]::IsNullOrWhiteSpace($buildNumber)){
 }
 
 
-$dotnetCountersFolder = Join-Path -Path $PSScriptRoot -ChildPath "../../src/Data.Json"
-$csprojFile = Join-Path -Path $dotnetCountersFolder -ChildPath "Data.Json.csproj"
+$dotnetCountersFolder = Join-Path -Path $PSScriptRoot -ChildPath "../../MyTestLibrary"
+$csprojFile = Join-Path -Path $dotnetCountersFolder -ChildPath "MyTestLibrary.csproj"
 
 $csprojXml = [xml](get-content ($csprojFile))
 
