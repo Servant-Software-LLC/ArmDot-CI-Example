@@ -33,7 +33,7 @@ jobs:
       run: dotnet build --no-restore --configuration $BuildConfiguration
 
     - name: Create nuget packages
-      run: dotnet pack DataProviders.sln --configuration $BuildConfiguration
+      run: dotnet pack MyTestLibrary.sln --configuration $BuildConfiguration
 
     - uses: actions/upload-artifact@v3
       with:
