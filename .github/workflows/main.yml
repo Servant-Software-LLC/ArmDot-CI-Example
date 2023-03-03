@@ -38,5 +38,5 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: Nuget Packages
-        path: ${{github.workspace}}/src/**/*.nupkg
+        path: ${{github.workspace}}/**/*.nupkg
 
