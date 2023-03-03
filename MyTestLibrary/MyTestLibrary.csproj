@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<LangVersion>11.0</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPackable>true</IsPackable>
+		<PackageId>ServantSoftware.Data.Json</PackageId>
+		<Authors>Servant Software LLC</Authors>
+		<Product>MyTestLibrary</Product>
+		<RepositoryUrl>https://github.com/Servant-Software-LLC/ArmDot-CI-Example</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/Servant-Software-LLC/ArmDot-CI-Example</PackageProjectUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<Version>1.0.0.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ArmDot.Client"  Version="2023.7.0" />
+		<PackageReference Include="ArmDot.Engine.MSBuildTasks" PrivateAssets="All" Version="2023.7.0" />
+	</ItemGroup>
+
+	<Target Name="Protect" AfterTargets="AfterCompile" BeforeTargets="BeforePublish"
+	    Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<ItemGroup>
+			<Assemblies Include="$(ProjectDir)$(IntermediateOutputPath)$(TargetFileName)" />
+		</ItemGroup>
+		<ArmDot.Engine.MSBuildTasks.ObfuscateTask
+		    Inputs="@(Assemblies)"
+		    ReferencePaths="@(_ResolveAssemblyReferenceResolvedFiles->'%(RootDir)%(Directory)')"
+		    SkipAlreadyObfuscatedAssemblies="true"
+        />
+	</Target>
+
+</Project>
