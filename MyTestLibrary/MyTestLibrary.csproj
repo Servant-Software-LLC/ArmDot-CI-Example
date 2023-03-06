@@ -16,7 +16,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ArmDot.Client"  Version="2023.7.0" />
+		<PackageReference Include="ArmDot.Client" PrivateAssets="All" Version="2023.7.0" />
 		<PackageReference Include="ArmDot.Engine.MSBuildTasks" PrivateAssets="All" Version="2023.7.0" />
 	</ItemGroup>
 
